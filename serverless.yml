@@ -1,0 +1,17 @@
+service: github-actions-with-serverless
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  region: us-west-1
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+
+functions:
+  hello:
+    events:
+      - http:
+          path: "/hello"
+          method: "GET"
+    handler: handler.hello
